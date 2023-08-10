@@ -3,6 +3,7 @@ This is a web interface for pont.tech cloud frames upscaler and interpolator.
 
 It can be accessed at [https://demo.ponttech.keenetic.pro](https://demo.ponttech.keenetic.pro)
 ## Demo
+![Demo](demo.gif)
 
 ## Running locally
 First build the container
