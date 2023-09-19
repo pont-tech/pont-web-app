@@ -9,7 +9,7 @@ Checkout full video on [YouTube](https://youtu.be/H_gVVHfzV8Y)
 ## Running locally
 First build the container
 ```
-docker built -t pont_tech_web_app .
+docker build -t pont_tech_web_app .
 ```
 And then run it
 ```
