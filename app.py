@@ -128,7 +128,10 @@ bc = st.get_option('theme.backgroundColor')
 bc_brightness = get_color_brightness(bc) if bc is not None else 1
 st.image("pont.tech_logo.png" if bc_brightness > 50 else "pont.tech_logo_white.png", width=200)
 if check_password():
-    st.markdown('This is demo for frames upscaling and interpolation tech used for pont.tech cloud. Upload sequence of files and press **Upload** button. If you do not have you own sequence we prepared some test [samples](https://drive.google.com/file/d/1y8DNc9Smo8cx2kFxtQ_7DL8RJ7qxKvzm/view?usp=drive_link) for you. Currently this demo supports only X2 upscaling, but interpolation is unlimted')
+    st.markdown("This application is designed to enhance the quality of frames in a sequence through upscaling and interpolation technology, which is utilized by pont.tech cloud. To get started, you need to upload a sequence of files by selecting the **\"Upload\"** button.")
+    st.markdown("In case you don't have your own sequence, there are some prepared sample files available for you to use.")
+    st.markdown("[Car sample](https://drive.google.com/file/d/1y8DNc9Smo8cx2kFxtQ_7DL8RJ7qxKvzm/view?usp=drive_link)        [Plant sample](https://drive.google.com/file/d/1cuLIal-bquihelrvT3KfCp623WgUoTke/view?usp=drive_link)")
+    st.markdown("It is important to note that the current version of the app only supports X2 upscaling, but the interpolation capabilities are unlimited.")
     with st.form("my-form", clear_on_submit=True):
         files = st.file_uploader("FILE UPLOADER", accept_multiple_files=True)
         submitted = st.form_submit_button("UPLOAD!")
