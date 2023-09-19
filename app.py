@@ -1,7 +1,7 @@
 import streamlit as st
 from streamlit_image_comparison import image_comparison
 import numpy as np
-st.set_page_config(page_title='pont.tech demo')
+st.set_page_config(page_title='pont.tech app')
 
 import cv2
 import os
@@ -62,6 +62,14 @@ upsampler = RealESRGANer(
     model_path=model_path,
     model=model,
     gpu_id=0)
+
+import base64
+
+def render_svg(svg):
+    """Renders the given svg string."""
+    b64 = base64.b64encode(svg.encode('utf-8')).decode("utf-8")
+    html = r'<img src="data:image/svg+xml;base64,%s"/>' % b64
+    st.write(html, unsafe_allow_html=True)
 
 def list_files_with_full_path(directory):
     file_list = []
@@ -126,7 +134,10 @@ exp = 1
 N = 2 ** exp
 bc = st.get_option('theme.backgroundColor')
 bc_brightness = get_color_brightness(bc) if bc is not None else 1
-st.image("pont.tech_logo.png" if bc_brightness > 50 else "pont.tech_logo_white.png", width=200)
+with open("pont.tech_logo.svg", "r") as f:
+    svg = f.read()
+
+render_svg(svg)
 if check_password():
     st.markdown("This application is designed to enhance the quality of frames in a sequence through upscaling and interpolation technology, which is utilized by pont.tech cloud. To get started, you need to upload a sequence of files by selecting the **\"Upload\"** button.")
     st.markdown("In case you don't have your own sequence, there are some prepared sample files available for you to use.")
